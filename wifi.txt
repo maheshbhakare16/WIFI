@@ -13,7 +13,7 @@ sudo modprobe rtl8723de
 sudo modprobe -r rtl8723de && sleep 5 && sudo modprobe rtl8723de ant_sel=2
 sudo modprobe -rv rtl8723de
 sudo modprobe -v rtl8723de ant_sel=2
-sudo ip link set wlo1 u
+sudo ip link set wlo1
 sudo iw dev wlo1 scan
 echo "options rtl8723de ant_sel=2" | sudo tee /etc/modprobe.d/50-rtl8723de.conf
 reboot
