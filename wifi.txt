@@ -1,4 +1,4 @@
-sudo apt-get update
+sudo apt-get update || sudo apt-get update -o Acquire::ForceIPv4=true
 sudo apt-get install apt-transport-https
  sudo apt-get install git
 git clone https://github.com/santoshchaurasiyacs/lwfinger-rtlwifi_new.git
