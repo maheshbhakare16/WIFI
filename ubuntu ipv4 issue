@@ -1,0 +1,11 @@
+It took quite some time to figure this one out, but the problem lies in IPv6. With IPv6 enabled, the recent network stack seems to stumble at times, especially when attempting to update with apt.
+
+Unfortunately, simply disabling IPv6 in your network device settings isn't enough--you have to completely disable IPv6 systemwide, and then apt works like a champ.
+
+How do you disable IPv6 systemwide? Simple. Open the /etc/sysctl.conf file with the command sudo nano /etc/sysctl.conf and add the following to the bottom of the file:
+
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+
+Save and close the file. Next, restart networking with the command sudo service networking restart. When that command completes, re-run sudo apt-get update, and you should see the process work as expected.
